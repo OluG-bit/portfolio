@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmanuel Yesufu — Software Engineer & Founder, WhyB</title>
+<meta name="description" content="Portfolio of Emmanuel Yesufu, Electrical & Electronic Engineering student at OAU and founder of WhyB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#131B2E;
+    --ink-soft:#3D4759;
+    --paper:#EEF1F4;
+    --paper-raised:#FFFFFF;
+    --copper:#A85C24;
+    --copper-deep:#7C3F14;
+    --circuit-green:#2F6F4E;
+    --line:#C7CDD6;
+    --line-strong:#9BA4B2;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:34px 34px;
+    background-position:-1px -1px;
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+  a{color:var(--copper-deep);}
+
+  /* ---------- Trace divider ---------- */
+  .trace{
+    max-width:760px; margin:0 auto; padding:0 28px;
+  }
+  .trace svg{display:block; width:100%; height:34px;}
+  .trace-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.08em; color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero{padding:88px 0 40px;}
+  .designator{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--copper-deep);
+    letter-spacing:.12em; text-transform:uppercase;
+    display:inline-block; margin-bottom:18px;
+    border:1px solid var(--copper); border-radius:3px;
+    padding:3px 9px;
+  }
+  h1.name{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size:clamp(40px, 7vw, 64px);
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .role-line{
+    font-size:18px; color:var(--ink-soft);
+    margin:0 0 26px; max-width:560px;
+  }
+  .role-line strong{color:var(--ink); font-weight:500;}
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:8px 0;
+    font-family:'IBM Plex Mono', monospace; font-size:13px;
+  }
+  .contact-row a{
+    color:var(--ink); text-decoration:none;
+    border-bottom:1px solid var(--line-strong);
+    padding-bottom:1px;
+  }
+  .contact-row a:hover{border-color:var(--copper); color:var(--copper-deep);}
+  .contact-row span.sep{color:var(--line-strong); margin:0 12px;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:46px 0;}
+  .sec-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:28px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--copper);
+  }
+  h2.sec-title{
+    font-family:'Newsreader', serif; font-weight:500;
+    font-size:26px; margin:0; letter-spacing:-.01em;
+  }
+
+  .lede{font-size:17px; color:var(--ink-soft); max-width:640px;}
+
+  /* ---------- Project card ---------- */
+  .project{
+    position:relative;
+    padding:22px 0 22px 26px;
+    border-left:2px solid var(--line);
+    margin-bottom:6px;
+  }
+  .project::before{
+    content:"";
+    position:absolute; left:-6px; top:28px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--copper);
+  }
+  .project-head{
+    display:flex; flex-wrap:wrap; align-items:baseline;
+    gap:8px 12px; margin-bottom:6px;
+  }
+  h3.project-title{
+    font-family:'Newsreader', serif; font-weight:500;
+    font-size:20px; margin:0;
+  }
+  .project-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--copper-deep);
+    text-transform:uppercase; letter-spacing:.04em;
+    margin-left:2px;
+  }
+  .project-blurb{
+    color:var(--ink-soft); font-size:15px; margin:2px 0 10px;
+    font-style:italic;
+  }
+  ul.bullets{margin:0 0 12px; padding-left:18px;}
+  ul.bullets li{margin-bottom:5px; font-size:15.5px;}
+  .tech{
+    display:flex; flex-wrap:wrap; gap:6px;
+  }
+  .tech span{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    color:var(--circuit-green);
+    border:1px solid #B9D2C4; background:#F3F8F5;
+    border-radius:3px; padding:2px 7px;
+  }
+
+  /* ---------- Skills ---------- */
+  .skill-grid{display:grid; grid-template-columns:1fr; gap:16px;}
+  .skill-row{display:flex; flex-wrap:wrap; gap:10px 8px; align-items:baseline;}
+  .skill-cat{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    color:var(--copper-deep); text-transform:uppercase;
+    letter-spacing:.06em; min-width:150px;
+  }
+  .skill-items{font-size:15px; color:var(--ink-soft); flex:1; min-width:220px;}
+
+  /* ---------- Simple list sections ---------- */
+  .entry{margin-bottom:18px;}
+  .entry h4{
+    font-family:'Newsreader', serif; font-weight:500;
+    font-size:18px; margin:0 0 4px;
+  }
+  .entry .meta{font-size:14px; color:var(--ink-soft); margin-bottom:6px;}
+
+  footer{
+    padding:50px 0 90px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="designator">EEE-402 · WhyB · Ile-Ife, NG</span>
+    <h1 class="name">Emmanuel Yesufu</h1>
+    <p class="role-line"><strong>Software Engineer &amp; Founder, WhyB.</strong> Fourth-year Electrical &amp; Electronic Engineering student at Obafemi Awolowo University. I build and ship production software, mostly alone, for real problems around me.</p>
+    <div class="contact-row">
+      <a href="mailto:emyesufu@gmail.com">emyesufu@gmail.com</a>
+      <span class="sep">/</span>
+      <a href="tel:+2348112333102">+234 811 233 3102</a>
+      <span class="sep">/</span>
+      <a href="https://github.com/OluG-bit" target="_blank" rel="noopener">github.com/OluG-bit</a>
+      <span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/emmanuel-yesufu-3520273b3/" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </header>
+</div>
+
+<div class="trace" aria-hidden="true">
+  <svg viewBox="0 0 760 34" preserveAspectRatio="none">
+    <path d="M0 17 H320 L336 3 H424 L440 17 H760" fill="none" stroke="#C7CDD6" stroke-width="1.5"/>
+    <circle cx="336" cy="3" r="3" fill="#EEF1F4" stroke="#A85C24" stroke-width="1.5"/>
+    <circle cx="440" cy="17" r="3" fill="#EEF1F4" stroke="#A85C24" stroke-width="1.5"/>
+  </svg>
+</div>
+
+<div class="wrap">
+
+  <section id="summary">
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Summary</h2></div>
+    <p class="lede">I'm the sole developer across the full stack of WhyB, a multi-product software brand: offline AI systems, backend architecture, deployed SaaS platforms. I handle every technical and business decision myself, system design, deployment, pricing, all of it. Outside WhyB I build in other areas too: health tech, surveillance, e-commerce, civic tech, usually alone and usually because someone around me needed it solved.</p>
+  </section>
+
+  <section id="flagship">
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Flagship products — WhyB</h2></div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">WhyB Quiz</h3>
+        <span class="project-role">Founder &amp; sole developer</span>
+      </div>
+      <p class="project-blurb">A live, tiered-subscription quiz and assessment platform serving organizations including religious groups. Grew from a vanilla HTML/JS/Firebase prototype into a full React/TypeScript production system.</p>
+      <ul class="bullets">
+        <li>Four question types (MCQ, True/False, Fill-in-the-Gap, Theory) with three timer modes and anti-cheat/disqualification logic</li>
+        <li>Real-time admin monitoring via Firestore, per-student theory grading, leaderboards, and automated PDF certificate generation</li>
+        <li>Bulk CSV/DOCX import, PDF/CSV/Excel export, and EmailJS-based credential delivery</li>
+        <li>Free / Weekly / Monthly Premium / Enterprise pricing, benchmarked against ProProfs and ClassMarker</li>
+      </ul>
+      <div class="tech"><span>React</span><span>TypeScript</span><span>Firebase / Firestore</span><span>Firebase Hosting</span><span>jsPDF</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">WhyB AI <span style="font-weight:400;font-size:15px;color:var(--ink-soft)">(formerly WhyBee)</span></h3>
+        <span class="project-role">Founder &amp; sole developer</span>
+      </div>
+      <p class="project-blurb">A fully offline, Windows-based AI voice assistant built for the Nigerian market, centered on a custom-trained lightweight transformer model with a full production shell around it.</p>
+      <ul class="bullets">
+        <li>Trained a custom ~20M-parameter, 6-layer / 8-head transformer model on Google Colab/Kaggle</li>
+        <li>Production shell: Vosk speech-to-text, pyttsx3/Piper text-to-speech, wake-word detection, SQLite memory, and reminders</li>
+        <li>Machine-locked HMAC-SHA256 licensing tied to PC hostname; Inno Setup installer and PyInstaller packaging for distribution</li>
+      </ul>
+      <div class="tech"><span>Python</span><span>PyTorch</span><span>Vosk</span><span>pywebview</span><span>SQLite</span><span>PyInstaller</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Smart Attendance Management System</h3>
+        <span class="project-role">Founder &amp; sole developer</span>
+      </div>
+      <p class="project-blurb">A production-grade attendance platform for universities and colleges, supporting multiple isolated organizations via a self-service invite system.</p>
+      <ul class="bullets">
+        <li>QR- and GPS-based attendance check-in with full RBAC, course/enrollment management, and analytics reporting</li>
+        <li>Multi-organization architecture: main-admin-issued invite links create isolated Org Admin accounts per institution</li>
+        <li>Backend deployed live in production; frontend rebuilt on React/TypeScript/Vite/Tailwind on Firebase</li>
+      </ul>
+      <div class="tech"><span>Firebase / Firestore</span><span>Cloud Functions</span><span>React</span><span>TypeScript</span><span>Node.js / Express</span></div>
+    </div>
+  </section>
+
+  <section id="additional">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Additional projects</h2></div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Vigil</h3>
+        <span class="project-role">Founder &amp; sole developer</span>
+      </div>
+      <p class="project-blurb">AI remote patient monitoring and clinical decision support, built at the Ontomorph Hackathon (Obafemi Awolowo University, July 2026) on Ontomorph, a digital-twin health platform SDK.</p>
+      <ul class="bullets">
+        <li>Personal-baseline deviation detection: flags vitals that stray from a patient's own historical average instead of a fixed range</li>
+        <li>Built a client-side NEWS2 clinical scoring engine myself after finding the platform had no working CDSS endpoint to rely on</li>
+        <li>Multi-hospital auth and staff workflow (Firebase): organization registration, pending verification, and platform-admin roles</li>
+        <li>Integrated with Ontomorph's twin-core, HOLON clinical knowledge API (5.3M concepts), and biomarker-trends endpoints</li>
+      </ul>
+      <div class="tech"><span>React Native</span><span>Expo</span><span>Firebase / Cloud Functions</span><span>Ontomorph SDK</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Powercite</h3>
+        <span class="project-role">Developer</span>
+      </div>
+      <ul class="bullets">
+        <li>Solar energy marketplace with role-based auth, per-role login pages, and clean URL routing</li>
+      </ul>
+      <div class="tech"><span>React</span><span>Vite</span><span>Firebase Hosting</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">SentryGrid</h3>
+        <span class="project-role">Founder &amp; sole developer</span>
+      </div>
+      <ul class="bullets">
+        <li>Multi-camera live-view dashboard using MediaMTX for RTSP-to-HLS conversion</li>
+        <li>Secure remote access via Cloudflare Tunnel, no port-forwarding required</li>
+      </ul>
+      <div class="tech"><span>Firebase Hosting</span><span>MediaMTX</span><span>Cloudflare Tunnel</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Ife</h3>
+        <span class="project-role">Founder &amp; sole developer</span>
+      </div>
+      <p class="project-blurb">Jarvis-style offline voice assistant.</p>
+      <ul class="bullets">
+        <li>Local voice assistant using Ollama (phi3:mini) as the reasoning engine, Vosk for speech-to-text, and Piper for text-to-speech</li>
+        <li>Later integrated the custom WhyB transformer model as an alternate conversation engine</li>
+      </ul>
+      <div class="tech"><span>Python</span><span>Ollama</span><span>Vosk</span><span>Piper</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">The Aesthetic Closet</h3>
+        <span class="project-role">Developer</span>
+      </div>
+      <p class="project-blurb">Jewelry e-commerce app built to help a friend launch and run her business online, including branding.</p>
+      <ul class="bullets">
+        <li>Sold/reserved status tracking, wishlist, waitlist, and inquiry tracking</li>
+      </ul>
+      <div class="tech"><span>React</span><span>TypeScript</span><span>Firebase</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">OAU Attendance Verification Tool</h3>
+        <span class="project-role">Founder &amp; sole developer</span>
+      </div>
+      <p class="project-blurb">A lightweight, single-file attendance tool built for lecturers to catch proxy/false attendance.</p>
+      <ul class="bullets">
+        <li>Cascading faculty/department dropdowns covering all 14 OAU faculties</li>
+        <li>GPS distance recording and WiFi/IP verification at check-in</li>
+        <li>Statistical outlier flagging (z-score, index of dispersion) to surface suspicious submissions</li>
+      </ul>
+      <div class="tech"><span>HTML/CSS/JS</span></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Skills</h2></div>
+    <div class="skill-grid">
+      <div class="skill-row"><span class="skill-cat">Frontend</span><span class="skill-items">React, TypeScript, Vite, Tailwind CSS, HTML/CSS/JS</span></div>
+      <div class="skill-row"><span class="skill-cat">Backend &amp; infra</span><span class="skill-items">Node.js, Express, Firebase (Firestore, Auth, Storage, Cloud Functions, FCM), PostgreSQL, Prisma, JWT, Render, Neon</span></div>
+      <div class="skill-row"><span class="skill-cat">AI &amp; systems</span><span class="skill-items">Python, custom transformer model training, speech-to-text/text-to-speech pipelines, desktop app packaging &amp; licensing, React Native / Expo</span></div>
+      <div class="skill-row"><span class="skill-cat">Networking</span><span class="skill-items">CCNA coursework: inter-VLAN routing, DHCP, multi-router/VLAN topology design (Cisco Packet Tracer)</span></div>
+      <div class="skill-row"><span class="skill-cat">Product</span><span class="skill-items">End-to-end product ownership, pricing &amp; revenue modeling, pitch deck design, deployment &amp; DevOps</span></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Education &amp; experience</h2></div>
+    <div class="entry">
+      <h4>B.Eng. Electrical and Electronic Engineering</h4>
+      <div class="meta">Obafemi Awolowo University · Fourth year</div>
+    </div>
+    <div class="entry">
+      <h4>SIWES Industrial Training</h4>
+      <div class="meta">INTECU, IT and Communications Unit, Obafemi Awolowo University</div>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Leadership &amp; community</h2></div>
+    <div class="entry">
+      <h4>WhyB — real-world platform adoption</h4>
+      <ul class="bullets" style="margin-top:8px;">
+        <li>Personally used WhyB to run a Bible quiz for my church</li>
+        <li>Adopted independently by an EEE 202 lecturer at Obafemi Awolowo University to run a 500-student MCQ mid-semester test, Rain Semester 2026, proof it holds up outside my own testing</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Emmanuel Yesufu — Ile-Ife, Nigeria
+  </footer>
+
+</div>
+
+</body>
+</html>
